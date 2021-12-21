@@ -5,6 +5,7 @@ import SingleBody from "./pages/SingleBody"
 import Form from "./pages/Form"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
+// import body from "./components/Body"
 
 import { useState, useEffect } from "react";
 import { Route, Routes, Link, useNavigate } from "react-router-dom";
@@ -27,9 +28,9 @@ function App() {
 
 const navigate = useNavigate();
 
-const url = "https://body-backend.herokuapp.com/"
+const url = "https://body-backend.herokuapp.com/body/"
 
-const [post, setPosts] = useState([])
+const [post, setPost] = useState([])
 
 const nullBody = {
   name: "",
@@ -42,22 +43,23 @@ const nullBody = {
 const [targetBody, setTargetBody] = useState(nullBody)
 
 // Function to get bodies from API
-const getBody = async () => {
+const getBodies = async () => {
   const response = await fetch(url);
   const data = await response.json();
-  setPosts(data);
+  setPost(data);
 }
 
 // Function to add Bodies
 const addBodies = async (newBody) => {
   await fetch(url, {
-    method: "post",
+    method: "Post",
     headers: {
       "Content-Type": "application/json",
     },
     ody: JSON.stringify(newBody),
   })
-  getBody()
+  getBodies()
+  console.log("newBody", newBody)
 };
 
 // to select a Body to edit
@@ -73,14 +75,14 @@ const updateBody = async (Body) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(Body),
+    Body: JSON.stringify(Body),
   });
-  getBody();
+  getPost();
 }
 
-const deleteBodies = async (Body) => {
+const deleteBodies = async (post) => {
   console.log("deleteBodies is Called")
-  await fetch(url + Body.id + "/", {
+  await fetch(url + post.id + "/", {
     method: "Delete"
   })
   getBody()
@@ -101,9 +103,9 @@ useEffect(()=> {
         <button style={button}>New Celestial Body</button>
       </Link>
       <Routes>
-        <Route path="/" element={<AllBodies Body={post}/>} />
+        <Route path="/" element={<AllBodies post={body}/>} />
         <Route path="/post/:id" element={<SingleBody
-      post={post}
+      post={body}
       edit={getTargetBody}
       deleteBodies={deleteBodies}  
       />} />
