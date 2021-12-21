@@ -1,6 +1,6 @@
 
 import {Link, useParams} from "react-router-dom"
-import  { useState} from "react"
+import  { useState } from "react"
 
 const SingleBody = ({ posts, edit, deleteBody }) => {
     const params = useParams()
@@ -27,6 +27,7 @@ const hideModal = ()=> {
 }
 
 return <div style={div}>
+    <h2>{post?.id}</h2>
     <h1>{post?.name}</h1>
     <h2>{post?.date_discovered}</h2>
     <h3>{post?.details}</h3>

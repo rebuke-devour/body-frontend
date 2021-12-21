@@ -9,8 +9,6 @@ import Footer from "./components/Footer"
 import { useState, useEffect } from "react";
 import { Route, Routes, Link, useNavigate } from "react-router-dom";
 
-
-
 // ==== Style Object ==== //
 const h1 = {
   textAlign: "center",
@@ -27,9 +25,9 @@ function App() {
 
 const navigate = useNavigate();
 
-const url = "https://body-backend.herokuapp.com/"
+const url = "https://body-backend.herokuapp.com/body/"
 
-const [post, setPosts] = useState([])
+const [posts, setPosts] = useState([])
 
 const nullBody = {
   name: "",
@@ -42,7 +40,7 @@ const nullBody = {
 const [targetBody, setTargetBody] = useState(nullBody)
 
 // Function to get bodies from API
-const getBody = async () => {
+const getBodies = async () => {
   const response = await fetch(url);
   const data = await response.json();
   setPosts(data);
@@ -55,9 +53,9 @@ const addBodies = async (newBody) => {
     headers: {
       "Content-Type": "application/json",
     },
-    ody: JSON.stringify(newBody),
+    body: JSON.stringify(newBody),
   })
-  getBody()
+  getBodies()
 };
 
 // to select a Body to edit
@@ -75,7 +73,7 @@ const updateBody = async (Body) => {
     },
     body: JSON.stringify(Body),
   });
-  getBody();
+  getBodies();
 }
 
 const deleteBodies = async (Body) => {
@@ -83,16 +81,18 @@ const deleteBodies = async (Body) => {
   await fetch(url + Body.id + "/", {
     method: "Delete"
   })
-  getBody()
+  getBodies()
   navigate("/")
 }
 
 // == useEffects == //
 useEffect(()=> {
-  getBody();
+  getBodies();
 }, [])
 
 // == Returned JSX == //
+
+
   return (
     <div className="App">
 <h1 style={h1}>Celestial Bodies</h1>
@@ -101,11 +101,11 @@ useEffect(()=> {
         <button style={button}>New Celestial Body</button>
       </Link>
       <Routes>
-        <Route path="/" element={<AllBodies Body={post}/>} />
+        <Route path="/" element={<AllBodies Body={posts}/>} />
         <Route path="/post/:id" element={<SingleBody
-      post={post}
+      posts={posts}
       edit={getTargetBody}
-      deleteBodies={deleteBodies}  
+      deleteBody={deleteBodies}  
       />} />
       <Route
         path="/new"

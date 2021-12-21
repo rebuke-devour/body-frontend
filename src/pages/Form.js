@@ -17,8 +17,10 @@ const handleSubmission = (event) => {
     navigate("/")
 }
 
+if (!formData){
+return <h1>Loading</h1>
+} else {
     return <form onSubmit={handleSubmission}>
-
 <input
     type="text"
     placeholder="Name"
@@ -43,5 +45,9 @@ const handleSubmission = (event) => {
     <input type="submit" value={buttonLabel}/>
 </form >
 }
+
+
+}
+
 
 export default Form;
