@@ -1,13 +1,13 @@
 
 import {Link, useParams} from "react-router-dom"
-import  { useState} from "react"
+import  { useState } from "react"
 
-const SingleBody = ({ body, edit, deleteBody }) => {
+const SingleBody = ({ posts, edit, deleteBody }) => {
     const params = useParams()
     const id = parseInt(params.id)
     
-    const Body = body.find((b)=> b.id === id)
-    console.log(Body)
+    const post = posts.find((p)=> p.id === id)
+    console.log(post)
 
 // == Style Object == //
 const div = {
@@ -27,11 +27,12 @@ const hideModal = ()=> {
 }
 
 return <div style={div}>
-    <h1>{Body?.name}</h1>
-    <h2>{Body?.date_discovered}</h2>
-    <h3>{Body?.details}</h3>
+    <h2>{post?.id}</h2>
+    <h1>{post?.name}</h1>
+    <h2>{post?.date_discovered}</h2>
+    <h3>{post?.details}</h3>
     <button onClick={ showModal }>Delete</button>
-    <button onClick={() => edit(Body)}>Edit</button>
+    <button onClick={() => edit(post)}>Edit</button>
     <Link to="/">
         <button>Go Back</button>
     </Link>
@@ -40,7 +41,7 @@ return <div style={div}>
         <div className="modal-content">
             <h1>Are you sure you'd like to delete this?</h1>
             <button onClick={ hideModal }>Close</button>
-            <button onClick={() => deleteBody(Body)}>Delete</button>
+            <button onClick={() => deleteBody(post)}>Delete</button>
         </div>
     </div>
 </div>

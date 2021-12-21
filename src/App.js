@@ -5,12 +5,9 @@ import SingleBody from "./pages/SingleBody"
 import Form from "./pages/Form"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
-// import body from "./components/Body"
 
 import { useState, useEffect } from "react";
 import { Route, Routes, Link, useNavigate } from "react-router-dom";
-
-
 
 // ==== Style Object ==== //
 const h1 = {
@@ -30,7 +27,7 @@ const navigate = useNavigate();
 
 const url = "https://body-backend.herokuapp.com/body/"
 
-const [post, setPost] = useState([])
+const [posts, setPosts] = useState([])
 
 const nullBody = {
   name: "",
@@ -46,20 +43,19 @@ const [targetBody, setTargetBody] = useState(nullBody)
 const getBodies = async () => {
   const response = await fetch(url);
   const data = await response.json();
-  setPost(data);
+  setPosts(data);
 }
 
 // Function to add Bodies
 const addBodies = async (newBody) => {
   await fetch(url, {
-    method: "Post",
+    method: "post",
     headers: {
       "Content-Type": "application/json",
     },
-    ody: JSON.stringify(newBody),
+    body: JSON.stringify(newBody),
   })
   getBodies()
-  console.log("newBody", newBody)
 };
 
 // to select a Body to edit
@@ -75,26 +71,28 @@ const updateBody = async (Body) => {
     headers: {
       "Content-Type": "application/json",
     },
-    Body: JSON.stringify(Body),
+    body: JSON.stringify(Body),
   });
-  getPost();
+  getBodies();
 }
 
-const deleteBodies = async (post) => {
+const deleteBodies = async (Body) => {
   console.log("deleteBodies is Called")
-  await fetch(url + post.id + "/", {
+  await fetch(url + Body.id + "/", {
     method: "Delete"
   })
-  getBody()
+  getBodies()
   navigate("/")
 }
 
 // == useEffects == //
 useEffect(()=> {
-  getBody();
+  getBodies();
 }, [])
 
 // == Returned JSX == //
+
+
   return (
     <div className="App">
 <h1 style={h1}>Celestial Bodies</h1>
@@ -103,11 +101,11 @@ useEffect(()=> {
         <button style={button}>New Celestial Body</button>
       </Link>
       <Routes>
-        <Route path="/" element={<AllBodies post={body}/>} />
+        <Route path="/" element={<AllBodies Body={posts}/>} />
         <Route path="/post/:id" element={<SingleBody
-      post={body}
+      posts={posts}
       edit={getTargetBody}
-      deleteBodies={deleteBodies}  
+      deleteBody={deleteBodies}  
       />} />
       <Route
         path="/new"

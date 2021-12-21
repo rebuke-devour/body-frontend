@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Body = ({ post }) => {
+const Post = ({ post }) => {
 
     ///////////////////////////
     // Style Objects
@@ -14,7 +14,7 @@ const Body = ({ post }) => {
   
     return (
       <div style={div}>
-        <Link to={`/body/${post?.id}`}>
+        <Link to={`/post/${post?.id}`}>
           <h1>{post?.name}</h1>
         </Link>
         <h2>{post?.date_discovered}</h2>
@@ -23,4 +23,4 @@ const Body = ({ post }) => {
     );
   };
   
-  export default Body;
+  export default Post;

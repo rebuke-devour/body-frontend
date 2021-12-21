@@ -1,9 +1,9 @@
 import React from "react"
-import Post from "../components/Post"
+import Post from "../components/post"
 
 const AllBodies = (props) => {
-    return props.body.map((post)=> {
-        return <Post key={post.id} post={post}/>
+    return props.Body.map((body)=> {
+        return <Post key={body.id} post={body}/>
     })
 }
 
