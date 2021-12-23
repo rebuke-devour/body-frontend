@@ -10,10 +10,10 @@ import { useState, useEffect } from "react";
 import { Route, Routes, Link, useNavigate } from "react-router-dom";
 
 // ==== Style Object ==== //
-const h1 = {
-  textAlign: "center",
-  margin: '10px',
-}
+// const h1 = {
+//   textAlign: "center",
+//   margin: '10px',
+// }
 
 const button = {
   backgroundColor: "navy",
@@ -94,9 +94,13 @@ useEffect(()=> {
 
 
   return (
+    
     <div className="App">
-<h1 style={h1}>Celestial Bodies</h1>
-    <Header/>
+        <h1 class="text-5xl font-bold underline">
+    Celestial Bodies
+  </h1>
+{/* <h1 style={h1}>Celestial Bodies</h1> */}
+    <Header />
       <Link to="/new">
         <button style={button}>New Celestial Body</button>
       </Link>
