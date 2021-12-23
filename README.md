@@ -1,70 +1,126 @@
-# Getting Started with Create React App
+## Celestial Bodies
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project Summary
+- A "to-do list" style list of celestial bodies and  an interesting fact for each
 
-## Available Scripts
 
-In the project directory, you can run:
+# User Story
+- I can create a new Celestial Body and see that it loads on the page. 
+- I can see a list of all my Celestial Bodies when I login.
+- click on one of my Celestial Bodies and have it take me to the linked website.
+- delete a Celestial Body. 
+- Able to update a Celestial Body. 
 
-### `npm start`
+## User Persona(s)
+ This approach follows the "Four Perspectives" method by Lene Nielsen outlined in interaction-design.org.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ This is designed toward the the "Goal-Oriented" Persona, and is defined as follows: "...by its personal, practical, and company-oriented goals as well as by the relationship with the product to be designed, the emotions of the persona when using the product, and the goals of the persona in using the product (hence Goal-Directed)." 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Thus, the desired outcome for this application is to provide the user a way to list their vacation plans, and will provide simple intiutive UI with the functions and features outlined below...
 
-### `npm test`
+### Scope of Functionalities
+- Basic CRUD Functionality; User should be able to Create, Read, Update and Delete their stored information.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Acceptance Criteria
+To meet Minimum Viable Product, this application will provide: 
+- Detailed README
+- Postgres DB
+- Backend API created with language/ framwork of choice
+- Backend & Live on Heroku
+- Frontend built with language/framwork of choice
+- Minimum of one model with full CRUD functionality to its data model
+- Minimum of 5 components in Frontend App
+- Follow RESTful conventions 
+- Responsive Styling
+- At least one (Carosel, Modal, Sandwich, Sandwich Menu)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## List of technologies
+Backend: Python, Masonite
+Frontend: ReactJS, Node.JS, Tailwind CSS
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Dependencies and Version outlined below:
 
-### `npm run eject`
+attrs==21.2.0
+backpack==0.1
+bcrypt==3.1.7
+certifi==2021.10.8
+cffi==1.15.0
+charset-normalizer==2.0.8
+cleo==0.8.1
+clikit==0.6.2
+crashtest==0.3.1
+cryptography==36.0.0
+exceptionite==1.0.1
+Faker==4.18.0
+gunicorn==20.1.0
+hfilesize==0.1.0
+hupper==1.9.1
+idna==3.3
+inflection==0.3.1
+iniconfig==1.1.1
+Jinja2==2.11.3
+MarkupSafe==2.0.1
+masonite==3.0.12
+masonite-dot==0.0.5
+masonite-logging==1.0.1
+masonite-orm==1.0.60
+masonite-validation==3.0.14
+packaging==21.3
+passlib==1.7.4
+pastel==0.2.1
+pendulum==2.1.2
+pluggy==1.0.0
+psutil==5.6.7
+psycopg==3.0.5
+psycopg2==2.9.2
+py==1.11.0
+pycparser==2.21
+pylev==1.4.0
+pyparsing==3.0.6
+pytest==6.2.5
+python-dateutil==2.8.2
+python-dotenv==0.10.5
+pytzdata==2020.1
+requests==2.26.0
+requests-file==1.5.1
+simplejson==3.17.6
+six==1.16.0
+tabulate==0.8.9
+termcolor==1.1.0
+text-unidecode==1.3
+tldextract==2.2.3
+toml==0.10.2
+urllib3==1.26.7
+whitenoise==4.1.4
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Models
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+body model:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+name: String
+date_discovered: String
+details: String
 
-## Learn More
+# Challenges: 
+Had various issues with masonite, which was a reminder to install things in the proper scope.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Encountered an issue showing the added celestial body when created, this was fixed by going through the props and variables and editing them for consistency.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Lastly, Tailwind CSS was a bit confusing as to where to make the proper edits to customise buttons and styling.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## Route Table
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| url | method | action |
+|-----|--------|--------|
+|/ | GET | get all Celestial Bodied (index)|
+|/body/:id | GET | get individual Celestial Body(show)| 
+|/body/:id/edit | GET | Show (edit) form |
+|/body/new | GET | Show (new) Celestial Body input form|
+|/body | POST | Input Celestial Body, redirect home|
+|/body/:id | PUT | Update Celestial Body, redirect home |
+|/body/:id | DELETE |Delete Celestial Body,redirect home|
