@@ -31,10 +31,10 @@ return <div style={div}>
     <h1>{post?.name}</h1>
     <h2>{post?.date_discovered}</h2>
     <h3>{post?.details}</h3>
-    <button onClick={ showModal }>Delete</button>
-    <button onClick={() => edit(post)}>Edit</button>
+    <button className="bg-gray-400  p-3 pl-4 pr-4 rounded-lg font-bold transition duration-500 ease-in-out hover:ring-2 ring-offset-2 ring-red-600" onClick={ showModal }>Delete</button>
+    <button className="bg-gray-400  p-3 pl-4 pr-4 rounded-lg font-bold transition duration-500 ease-in-out hover:ring-2 ring-offset-2 ring-red-600" onClick={() => edit(post)}>Edit</button>
     <Link to="/">
-        <button>Go Back</button>
+        <button className="bg-gray-400  p-3 pl-4 pr-4 rounded-lg font-bold transition duration-500 ease-in-out hover:ring-2 ring-offset-2 ring-red-600" >Go Back</button>
     </Link>
     <div className="modal" style={show}>
 
