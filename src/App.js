@@ -95,7 +95,7 @@ useEffect(()=> {
 
   return (
     
-    <div className="App">
+    <div className="App"  >
         <h1 class="text-5xl font-bold underline">
     Celestial Bodies
   </h1>
